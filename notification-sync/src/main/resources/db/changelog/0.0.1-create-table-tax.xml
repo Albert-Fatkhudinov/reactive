@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="fathudionov" id="create_table_tax">
+        <comment> налоги </comment>
+        <createTable tableName="tax" remarks="Информация о работе мигратора">
+            <column name="id" type="SERIAL" remarks="Идентификатор записи">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tax"/>
+            </column>
+            <column name="type" type="VARCHAR(255)" remarks="тип уведомления">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)" remarks="имя уведомления">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_name" type="VARCHAR(255)" remarks="Имя получателя">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_time" type="TIMESTAMP WITHOUT TIME ZONE" remarks="когда был создан">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
+
+

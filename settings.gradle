@@ -1,0 +1,4 @@
+rootProject.name = 'sync-or-reactive'
+include 'notification-sync'
+include 'communal'
+
