@@ -8,13 +8,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
 
 import javax.print.attribute.standard.MediaSize;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
-@RequiredArgsConstructor
 public class NotificationApplication {
 
 //    private final FineRepository fineRepository;

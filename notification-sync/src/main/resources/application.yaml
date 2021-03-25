@@ -1,12 +1,24 @@
 spring:
   application:
     name: statement
-  datasource:
-    url: jdbc:postgresql://localhost:5432/taxdb
-    username: postgres
-    password: password
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/taxdb
+#    username: postgres
+#    password: password
   liquibase:
     change-log: classpath:db/notification-master.xml
   data:
     mongodb:
       uri: mongodb://localhost:27017/local
+    r2dbc:
+      repositories:
+        enabled: true
+  r2dbc:
+    username: postgres
+    password: password
+    url: r2dbc:postgresql://localhost:5432/taxdb
+logging:
+  level:
+    org:
+      springframework:
+        r2dbc: DEBUG

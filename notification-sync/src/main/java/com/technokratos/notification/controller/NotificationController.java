@@ -4,11 +4,10 @@ import com.technokratos.communal.dto.RequestPerson;
 import com.technokratos.notification.dto.NotificationDTO;
 import com.technokratos.notification.service.NotificationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,9 +15,11 @@ public class NotificationController {
 
     private final NotificationService service;
 
-    @PostMapping("/notifications")
-    public List<NotificationDTO> getNotifications(@RequestBody RequestPerson person) {
-        return  service.getNotifications(person);
+    @GetMapping(value = "/notifications", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Flux<NotificationDTO> getNotifications() {
+        RequestPerson person = new RequestPerson();
+        person.setPersonName("ИВАН");
+        return service.getNotifications(person);
     }
 
 }

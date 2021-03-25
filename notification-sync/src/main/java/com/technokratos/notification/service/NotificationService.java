@@ -2,10 +2,11 @@ package com.technokratos.notification.service;
 
 import com.technokratos.communal.dto.RequestPerson;
 import com.technokratos.notification.dto.NotificationDTO;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 
 public interface NotificationService {
 
-    List<NotificationDTO> getNotifications(RequestPerson person);
+    Flux<NotificationDTO> getNotifications(RequestPerson person);
 }
